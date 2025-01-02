@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    default: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/redis
+    username: root
+    password: my-secret-pw
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: test
+      default-time: 5m
+
+logging:
+  level:
+    org.springframework.cache: trace # Redis 사용에 대한 로그가 조회되도록 설정
