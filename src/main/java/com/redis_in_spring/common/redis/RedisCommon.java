@@ -82,6 +82,7 @@ public class RedisCommon {
 
     public <T> List<T> getTopNFromSortedSet(String key, int n, Class<T> clazz) {
         Set<String> jsonValues = template.opsForZSet().reverseRange(key, 0, n - 1); // score 내림차순
+        // Set<TypedTuple<String>> jsonValues = template.opsForZSet().reverseRangeWithScores(key, 0, n - 1); // 값과 점수 반환
         List<T> resultSet = new ArrayList<>();
         if (jsonValues != null) {
             for (String jsonValue : jsonValues) {
